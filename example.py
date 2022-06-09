@@ -23,6 +23,12 @@ minPts = 400
 
 torch.cuda.synchronize()
 
+
+t0 = time.time()
+C = PROCLUS(data, a=eps, minPts=minPts)
+t1 = time.time()
+print(t1 - t0, C, np.unique(C, return_counts=True))
+
 t0 = time.time()
 C = GPU_DBSCAN(data, eps=eps, minPts=minPts)
 t1 = time.time()

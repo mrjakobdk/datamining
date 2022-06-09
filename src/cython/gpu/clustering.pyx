@@ -22,10 +22,30 @@ cdef GPU_DBSCAN_cython(
 ):
     GPU_DBSCAN_cpp(&C[0], &data[0,0], n, d, eps, minPts)
 
+@cython.embedsignature(True)
 def GPU_DBSCAN(
     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
     float eps, int minPts
 ):
+    """
+    Implementation of the DBSCAN in the GPU-INSCY algorithm [1].
+
+
+    Parameters:
+        **data** (NumPy float array of shape=(n_points, n_dims)) - The data
+
+        **eps** (float) - The neighborhood radius
+
+        **minPts** (float) - Minimum number of points in the neighborhood
+
+
+    Result:
+        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point
+
+
+    References:
+        [1] `Jakob Rødsgaard Jørgensen, Katrine Scheel, Ira Assent - GPU-INSCY: A GPU-Parallel Algorithm and Tree Structure for Efficient Density-based Subspace Clustering <https://www.researchgate.net/profile/Jakob-Jorgensen-6/publication/353142592_GPU-INSCY_A_GPU-Parallel_Algorithm_and_Tree_Structure_for_Efficient_Density-based_Subspace_Clustering/links/60e94fc41c28af34585991c0/GPU-INSCY-A-GPU-Parallel-Algorithm-and-Tree-Structure-for-Efficient-Density-based-Subspace-Clustering.pdf>`_
+    """
     cdef int n = data.shape[0]
     cdef int d = data.shape[1]
     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
@@ -42,10 +62,30 @@ cdef G_DBSCAN_cython(
 ):
     G_DBSCAN_cpp(&C[0], &data[0,0], n, d, eps, minPts)
 
+@cython.embedsignature(True)
 def G_DBSCAN(
     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
     float eps, int minPts
 ):
+    """
+    Implementation of the G-DBSCAN algorithm [1].
+
+
+    Parameters:
+        **data** (NumPy float array of shape=(n_points, n_dims)) - The data
+
+        **eps** (float) - The neighborhood radius
+
+        **minPts** (float) - Minimum number of points in the neighborhood
+
+
+    Result:
+        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point
+
+
+    References:
+        [1] `Guilherme Andrade, Gabriel Ramos, Daniel Madeira, Rafael Sachetto, Renato Ferreira, Leonardo Rocha - G-DBSCAN: A GPU accelerated algorithm for density-based clustering <https://www.sciencedirect.com/science/article/pii/S1877050913003438>`_
+    """
     cdef int n = data.shape[0]
     cdef int d = data.shape[1]
     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
@@ -53,8 +93,6 @@ def G_DBSCAN(
     return np.asarray(C)
 
 ### EGG-SynC
-
-
 cdef EGG_SynC_cython(
     np.ndarray[int, ndim=1, mode='c'] C,
     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
@@ -62,10 +100,28 @@ cdef EGG_SynC_cython(
 ):
     EGG_SynC_cpp(&C[0], &data[0,0], n, d, eps)
 
+@cython.embedsignature(True)
 def EGG_SynC(
     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
     float eps
 ):
+    """
+    Implementation of the EGG-SynC algorithm [1].
+
+
+    Parameters:
+        **data** (NumPy float array of shape=(n_points, n_dims)) - The data
+
+        **eps** (float) - The neighborhood radius
+
+
+    Result:
+        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point
+
+
+    References:
+        [1] `Jakob Rødsgaard Jørgensen, Ira Assent - ?? <??>`_
+    """
     cdef int n = data.shape[0]
     cdef int d = data.shape[1]
     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
@@ -80,10 +136,30 @@ cdef SynC_cython(
 ):
     SynC_cpp(&C[0], &data[0,0], n, d, eps, lam)
 
+@cython.embedsignature(True)
 def SynC(
     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
     float eps, float lam
 ):
+    """
+    Implementation of the SynC algorithm [1].
+
+
+    Parameters:
+        **data** (NumPy float array of shape=(n_points, n_dims)) - The data
+
+        **eps** (float) - The neighborhood radius
+
+        **lam** (float) - Accuracy parameter
+
+
+    Result:
+        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point
+
+
+    References:
+        [1] `Christian Böhm, Claudia Plant, Junming Shao, Qinli Yang - Clustering by synchronization <https://dl.acm.org/doi/pdf/10.1145/1835804.1835879>`_
+    """
     cdef int n = data.shape[0]
     cdef int d = data.shape[1]
     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')

@@ -9,6 +9,7 @@ install:
 		src/cpp_wrappers/clustering.cpp \
 		src/algorithms/clustering/SynC.cpp \
 		src/utils/CPU_math.cpp \
+		src/utils/CPU_mem_util.cpp \
 		build/EGG_SynC.o \
         build/GPU_DBSCAN.o \
         build/GPU_utils.o \
@@ -24,4 +25,5 @@ install:
         build/GPU_utils.o \
 		-Xcompiler -fPIC
 
-	python3 setup.py install
+	python3 setup.py build_ext --inplace
+	sphinx-build -b html docs/source docs/build/html
