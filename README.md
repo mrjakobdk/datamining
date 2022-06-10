@@ -8,3 +8,5 @@ It can easily be install on linux using anaconda:
 All methods take the input as numpy arrays and return the result as numpy arrays.
 
 If you have any corrections or suggestions you can try to write me an email.
+
+Documentation is found at: mrjakob.dk/datamining/docs/0.0.3
