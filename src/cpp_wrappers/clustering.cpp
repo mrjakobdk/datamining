@@ -4,11 +4,16 @@
 
 #import <stdio.h>
 
+#include "../algorithms/clustering/DBSCAN.h"
 #include "../algorithms/clustering/GPU_DBSCAN.cuh"
 #include "../algorithms/clustering/EGG_SynC.cuh"
 #include "../algorithms/clustering/SynC.h"
 
 #include "clustering.h"
+
+void DBSCAN_cpp(int *h_C, float *h_data, int n, int d, float eps, int minPts) {
+    DBSCAN(h_C, h_data, n, d, eps, minPts);
+}
 
 void GPU_DBSCAN_cpp(int *h_C, float *h_data, int n, int d, float eps, int minPts) {
     GPU_DBSCAN(h_C, h_data, n, d, eps, minPts);

@@ -9,6 +9,7 @@ ctypedef np.int32_t DTYPE_INT
 
 
 cdef extern from "../../cpp_wrappers/clustering.cpp":
+    void DBSCAN_cpp(int *h_C, float *h_data, int n, int d, float eps, int minPts)
     void GPU_DBSCAN_cpp(int *h_C, float *h_data, int n, int d, float eps, int minPts)
     void G_DBSCAN_cpp(int *h_C, float *h_data, int n, int d, float eps, int minPts)
     void EGG_SynC_cpp(int *h_C, float *h_data, int n, int d, float eps)
@@ -90,6 +91,46 @@ def G_DBSCAN(
     cdef int d = data.shape[1]
     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
     G_DBSCAN_cython(C, data, n, d, eps, minPts)
+    return np.asarray(C)
+
+
+### DBSCAN
+
+cdef DBSCAN_cython(
+    np.ndarray[int, ndim=1, mode='c'] C,
+    np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+    int n, int d, float eps, int minPts
+):
+    DBSCAN_cpp(&C[0], &data[0,0], n, d, eps, minPts)
+
+@cython.embedsignature(True)
+def DBSCAN(
+    np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+    float eps, int minPts
+):
+    """
+    Implementation of the DBSCAN algorithm [1].
+
+
+    Parameters:
+        **data** (NumPy float array of shape=(n_points, n_dims)) - The data
+
+        **eps** (float) - The neighborhood radius
+
+        **minPts** (float) - Minimum number of points in the neighborhood
+
+
+    Result:
+        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point
+
+
+    References:
+        [1] `Martin Ester, Hans-Peter Kriegel, Jiirg Sander, Xiaowei Xu - A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise <https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page>`_
+    """
+    cdef int n = data.shape[0]
+    cdef int d = data.shape[1]
+    cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
+    DBSCAN_cython(C, data, n, d, eps, minPts)
     return np.asarray(C)
 
 ### EGG-SynC

@@ -25,7 +25,7 @@ torch.cuda.synchronize()
 
 
 t0 = time.time()
-C = PROCLUS(data, a=eps, minPts=minPts)
+C = DBSCAN(data, eps=eps, minPts=minPts)
 t1 = time.time()
 print(t1 - t0, C, np.unique(C, return_counts=True))
 

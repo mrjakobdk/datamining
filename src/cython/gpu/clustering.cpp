@@ -1815,6 +1815,7 @@ static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 /* Module declarations from 'datamining.clustering' */
 static PyObject *__pyx_f_10datamining_10clustering_GPU_DBSCAN_cython(PyArrayObject *, PyArrayObject *, int, int, float, int); /*proto*/
 static PyObject *__pyx_f_10datamining_10clustering_G_DBSCAN_cython(PyArrayObject *, PyArrayObject *, int, int, float, int); /*proto*/
+static PyObject *__pyx_f_10datamining_10clustering_DBSCAN_cython(PyArrayObject *, PyArrayObject *, int, int, float, int); /*proto*/
 static PyObject *__pyx_f_10datamining_10clustering_EGG_SynC_cython(PyArrayObject *, PyArrayObject *, int, int, float); /*proto*/
 static PyObject *__pyx_f_10datamining_10clustering_SynC_cython(PyArrayObject *, PyArrayObject *, int, int, float, float); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
@@ -1843,6 +1844,7 @@ static const char __pyx_k_int32[] = "int32";
 static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_order[] = "order";
 static const char __pyx_k_zeros[] = "zeros";
+static const char __pyx_k_DBSCAN[] = "DBSCAN";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_minPts[] = "minPts";
 static const char __pyx_k_asarray[] = "asarray";
@@ -1856,6 +1858,7 @@ static const char __pyx_k_src_cython_gpu_clustering_pyx[] = "src/cython/gpu/clus
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
 static PyObject *__pyx_n_s_C;
+static PyObject *__pyx_n_s_DBSCAN;
 static PyObject *__pyx_n_s_EGG_SynC;
 static PyObject *__pyx_n_s_GPU_DBSCAN;
 static PyObject *__pyx_n_s_G_DBSCAN;
@@ -1886,21 +1889,24 @@ static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_zeros;
 static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, int __pyx_v_minPts); /* proto */
 static PyObject *__pyx_pf_10datamining_10clustering_2G_DBSCAN(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, int __pyx_v_minPts); /* proto */
-static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps); /* proto */
-static PyObject *__pyx_pf_10datamining_10clustering_6SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, float __pyx_v_lam); /* proto */
+static PyObject *__pyx_pf_10datamining_10clustering_4DBSCAN(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, int __pyx_v_minPts); /* proto */
+static PyObject *__pyx_pf_10datamining_10clustering_6EGG_SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps); /* proto */
+static PyObject *__pyx_pf_10datamining_10clustering_8SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, float __pyx_v_lam); /* proto */
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__7;
 static PyObject *__pyx_tuple__9;
+static PyObject *__pyx_tuple__11;
 static PyObject *__pyx_codeobj__4;
 static PyObject *__pyx_codeobj__6;
 static PyObject *__pyx_codeobj__8;
 static PyObject *__pyx_codeobj__10;
+static PyObject *__pyx_codeobj__12;
 /* Late includes */
 
-/* "src/cython/gpu/clustering.pyx":18
+/* "src/cython/gpu/clustering.pyx":19
  * 
  * ### GPU-DBSCAN
  * cdef GPU_DBSCAN_cython(             # <<<<<<<<<<<<<<
@@ -1933,16 +1939,16 @@ static PyObject *__pyx_f_10datamining_10clustering_GPU_DBSCAN_cython(PyArrayObje
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 19, __pyx_L1_error)
   }
   __pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 19, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":23
+  /* "src/cython/gpu/clustering.pyx":24
  *     int n, int d, float eps, int minPts
  * ):
  *     GPU_DBSCAN_cpp(&C[0], &data[0,0], n, d, eps, minPts)             # <<<<<<<<<<<<<<
@@ -1957,7 +1963,7 @@ static PyObject *__pyx_f_10datamining_10clustering_GPU_DBSCAN_cython(PyArrayObje
   } else if (unlikely(__pyx_t_1 >= __pyx_pybuffernd_C.diminfo[0].shape)) __pyx_t_2 = 0;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 23, __pyx_L1_error)
+    __PYX_ERR(0, 24, __pyx_L1_error)
   }
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -1972,11 +1978,11 @@ static PyObject *__pyx_f_10datamining_10clustering_GPU_DBSCAN_cython(PyArrayObje
   } else if (unlikely(__pyx_t_4 >= __pyx_pybuffernd_data.diminfo[1].shape)) __pyx_t_2 = 1;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 23, __pyx_L1_error)
+    __PYX_ERR(0, 24, __pyx_L1_error)
   }
   GPU_DBSCAN_cpp((&(*__Pyx_BufPtrCContig1d(int *, __pyx_pybuffernd_C.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_C.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_10datamining_10clustering_DTYPE_FLOAT *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_data.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_data.diminfo[1].strides))), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts);
 
-  /* "src/cython/gpu/clustering.pyx":18
+  /* "src/cython/gpu/clustering.pyx":19
  * 
  * ### GPU-DBSCAN
  * cdef GPU_DBSCAN_cython(             # <<<<<<<<<<<<<<
@@ -2007,7 +2013,7 @@ static PyObject *__pyx_f_10datamining_10clustering_GPU_DBSCAN_cython(PyArrayObje
   return __pyx_r;
 }
 
-/* "src/cython/gpu/clustering.pyx":26
+/* "src/cython/gpu/clustering.pyx":27
  * 
  * @cython.embedsignature(True)
  * def GPU_DBSCAN(             # <<<<<<<<<<<<<<
@@ -2054,17 +2060,17 @@ static PyObject *__pyx_pw_10datamining_10clustering_1GPU_DBSCAN(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_eps)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GPU_DBSCAN", 1, 3, 3, 1); __PYX_ERR(0, 26, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("GPU_DBSCAN", 1, 3, 3, 1); __PYX_ERR(0, 27, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_minPts)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GPU_DBSCAN", 1, 3, 3, 2); __PYX_ERR(0, 26, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("GPU_DBSCAN", 1, 3, 3, 2); __PYX_ERR(0, 27, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GPU_DBSCAN") < 0)) __PYX_ERR(0, 26, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GPU_DBSCAN") < 0)) __PYX_ERR(0, 27, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -2074,18 +2080,18 @@ static PyObject *__pyx_pw_10datamining_10clustering_1GPU_DBSCAN(PyObject *__pyx_
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_data = ((PyArrayObject *)values[0]);
-    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L3_error)
-    __pyx_v_minPts = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_minPts == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L3_error)
+    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 29, __pyx_L3_error)
+    __pyx_v_minPts = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_minPts == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 29, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GPU_DBSCAN", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 26, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("GPU_DBSCAN", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 27, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("datamining.clustering.GPU_DBSCAN", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 28, __pyx_L1_error)
   __pyx_r = __pyx_pf_10datamining_10clustering_GPU_DBSCAN(__pyx_self, __pyx_v_data, __pyx_v_eps, __pyx_v_minPts);
 
   /* function exit code */
@@ -2127,11 +2133,11 @@ static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyO
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 26, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 27, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":49
+  /* "src/cython/gpu/clustering.pyx":50
  *         [1] `Jakob Rdsgaard Jrgensen, Katrine Scheel, Ira Assent - GPU-INSCY: A GPU-Parallel Algorithm and Tree Structure for Efficient Density-based Subspace Clustering <https://www.researchgate.net/profile/Jakob-Jorgensen-6/publication/353142592_GPU-INSCY_A_GPU-Parallel_Algorithm_and_Tree_Structure_for_Efficient_Density-based_Subspace_Clustering/links/60e94fc41c28af34585991c0/GPU-INSCY-A-GPU-Parallel-Algorithm-and-Tree-Structure-for-Efficient-Density-based-Subspace-Clustering.pdf>`_
  *     """
  *     cdef int n = data.shape[0]             # <<<<<<<<<<<<<<
@@ -2140,7 +2146,7 @@ static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyO
  */
   __pyx_v_n = (__pyx_v_data->dimensions[0]);
 
-  /* "src/cython/gpu/clustering.pyx":50
+  /* "src/cython/gpu/clustering.pyx":51
  *     """
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]             # <<<<<<<<<<<<<<
@@ -2149,47 +2155,47 @@ static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyO
  */
   __pyx_v_d = (__pyx_v_data->dimensions[1]);
 
-  /* "src/cython/gpu/clustering.pyx":51
+  /* "src/cython/gpu/clustering.pyx":52
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')             # <<<<<<<<<<<<<<
  *     GPU_DBSCAN_cython(C, data, n, d, eps, minPts)
  *     return np.asarray(C)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 52, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_INT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_C = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_C.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 51, __pyx_L1_error)
+      __PYX_ERR(0, 52, __pyx_L1_error)
     } else {__pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -2197,18 +2203,18 @@ static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyO
   __pyx_v_C = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":52
+  /* "src/cython/gpu/clustering.pyx":53
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     GPU_DBSCAN_cython(C, data, n, d, eps, minPts)             # <<<<<<<<<<<<<<
  *     return np.asarray(C)
  * 
  */
-  __pyx_t_5 = __pyx_f_10datamining_10clustering_GPU_DBSCAN_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_5 = __pyx_f_10datamining_10clustering_GPU_DBSCAN_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":53
+  /* "src/cython/gpu/clustering.pyx":54
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     GPU_DBSCAN_cython(C, data, n, d, eps, minPts)
  *     return np.asarray(C)             # <<<<<<<<<<<<<<
@@ -2216,9 +2222,9 @@ static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyO
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -2233,14 +2239,14 @@ static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyO
   }
   __pyx_t_5 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, ((PyObject *)__pyx_v_C)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_C));
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "src/cython/gpu/clustering.pyx":26
+  /* "src/cython/gpu/clustering.pyx":27
  * 
  * @cython.embedsignature(True)
  * def GPU_DBSCAN(             # <<<<<<<<<<<<<<
@@ -2275,7 +2281,7 @@ static PyObject *__pyx_pf_10datamining_10clustering_GPU_DBSCAN(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "src/cython/gpu/clustering.pyx":58
+/* "src/cython/gpu/clustering.pyx":59
  * ### G-DBSCAN
  * 
  * cdef G_DBSCAN_cython(             # <<<<<<<<<<<<<<
@@ -2308,16 +2314,16 @@ static PyObject *__pyx_f_10datamining_10clustering_G_DBSCAN_cython(PyArrayObject
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 58, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 59, __pyx_L1_error)
   }
   __pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 58, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 59, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":63
+  /* "src/cython/gpu/clustering.pyx":64
  *     int n, int d, float eps, int minPts
  * ):
  *     G_DBSCAN_cpp(&C[0], &data[0,0], n, d, eps, minPts)             # <<<<<<<<<<<<<<
@@ -2332,7 +2338,7 @@ static PyObject *__pyx_f_10datamining_10clustering_G_DBSCAN_cython(PyArrayObject
   } else if (unlikely(__pyx_t_1 >= __pyx_pybuffernd_C.diminfo[0].shape)) __pyx_t_2 = 0;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 63, __pyx_L1_error)
+    __PYX_ERR(0, 64, __pyx_L1_error)
   }
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -2347,11 +2353,11 @@ static PyObject *__pyx_f_10datamining_10clustering_G_DBSCAN_cython(PyArrayObject
   } else if (unlikely(__pyx_t_4 >= __pyx_pybuffernd_data.diminfo[1].shape)) __pyx_t_2 = 1;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 63, __pyx_L1_error)
+    __PYX_ERR(0, 64, __pyx_L1_error)
   }
   G_DBSCAN_cpp((&(*__Pyx_BufPtrCContig1d(int *, __pyx_pybuffernd_C.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_C.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_10datamining_10clustering_DTYPE_FLOAT *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_data.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_data.diminfo[1].strides))), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts);
 
-  /* "src/cython/gpu/clustering.pyx":58
+  /* "src/cython/gpu/clustering.pyx":59
  * ### G-DBSCAN
  * 
  * cdef G_DBSCAN_cython(             # <<<<<<<<<<<<<<
@@ -2382,7 +2388,7 @@ static PyObject *__pyx_f_10datamining_10clustering_G_DBSCAN_cython(PyArrayObject
   return __pyx_r;
 }
 
-/* "src/cython/gpu/clustering.pyx":66
+/* "src/cython/gpu/clustering.pyx":67
  * 
  * @cython.embedsignature(True)
  * def G_DBSCAN(             # <<<<<<<<<<<<<<
@@ -2429,17 +2435,17 @@ static PyObject *__pyx_pw_10datamining_10clustering_3G_DBSCAN(PyObject *__pyx_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_eps)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("G_DBSCAN", 1, 3, 3, 1); __PYX_ERR(0, 66, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("G_DBSCAN", 1, 3, 3, 1); __PYX_ERR(0, 67, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_minPts)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("G_DBSCAN", 1, 3, 3, 2); __PYX_ERR(0, 66, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("G_DBSCAN", 1, 3, 3, 2); __PYX_ERR(0, 67, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "G_DBSCAN") < 0)) __PYX_ERR(0, 66, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "G_DBSCAN") < 0)) __PYX_ERR(0, 67, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -2449,18 +2455,18 @@ static PyObject *__pyx_pw_10datamining_10clustering_3G_DBSCAN(PyObject *__pyx_se
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_data = ((PyArrayObject *)values[0]);
-    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 68, __pyx_L3_error)
-    __pyx_v_minPts = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_minPts == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 68, __pyx_L3_error)
+    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 69, __pyx_L3_error)
+    __pyx_v_minPts = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_minPts == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 69, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("G_DBSCAN", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 66, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("G_DBSCAN", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 67, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("datamining.clustering.G_DBSCAN", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 67, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 68, __pyx_L1_error)
   __pyx_r = __pyx_pf_10datamining_10clustering_2G_DBSCAN(__pyx_self, __pyx_v_data, __pyx_v_eps, __pyx_v_minPts);
 
   /* function exit code */
@@ -2502,11 +2508,11 @@ static PyObject *__pyx_pf_10datamining_10clustering_2G_DBSCAN(CYTHON_UNUSED PyOb
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 67, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":89
+  /* "src/cython/gpu/clustering.pyx":90
  *         [1] `Guilherme Andrade, Gabriel Ramos, Daniel Madeira, Rafael Sachetto, Renato Ferreira, Leonardo Rocha - G-DBSCAN: A GPU accelerated algorithm for density-based clustering <https://www.sciencedirect.com/science/article/pii/S1877050913003438>`_
  *     """
  *     cdef int n = data.shape[0]             # <<<<<<<<<<<<<<
@@ -2515,7 +2521,7 @@ static PyObject *__pyx_pf_10datamining_10clustering_2G_DBSCAN(CYTHON_UNUSED PyOb
  */
   __pyx_v_n = (__pyx_v_data->dimensions[0]);
 
-  /* "src/cython/gpu/clustering.pyx":90
+  /* "src/cython/gpu/clustering.pyx":91
  *     """
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]             # <<<<<<<<<<<<<<
@@ -2524,47 +2530,47 @@ static PyObject *__pyx_pf_10datamining_10clustering_2G_DBSCAN(CYTHON_UNUSED PyOb
  */
   __pyx_v_d = (__pyx_v_data->dimensions[1]);
 
-  /* "src/cython/gpu/clustering.pyx":91
+  /* "src/cython/gpu/clustering.pyx":92
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')             # <<<<<<<<<<<<<<
  *     G_DBSCAN_cython(C, data, n, d, eps, minPts)
  *     return np.asarray(C)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 92, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_INT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_C = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_C.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 91, __pyx_L1_error)
+      __PYX_ERR(0, 92, __pyx_L1_error)
     } else {__pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -2572,28 +2578,28 @@ static PyObject *__pyx_pf_10datamining_10clustering_2G_DBSCAN(CYTHON_UNUSED PyOb
   __pyx_v_C = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":92
+  /* "src/cython/gpu/clustering.pyx":93
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     G_DBSCAN_cython(C, data, n, d, eps, minPts)             # <<<<<<<<<<<<<<
  *     return np.asarray(C)
  * 
  */
-  __pyx_t_5 = __pyx_f_10datamining_10clustering_G_DBSCAN_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_5 = __pyx_f_10datamining_10clustering_G_DBSCAN_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":93
+  /* "src/cython/gpu/clustering.pyx":94
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     G_DBSCAN_cython(C, data, n, d, eps, minPts)
  *     return np.asarray(C)             # <<<<<<<<<<<<<<
  * 
- * ### EGG-SynC
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -2608,14 +2614,14 @@ static PyObject *__pyx_pf_10datamining_10clustering_2G_DBSCAN(CYTHON_UNUSED PyOb
   }
   __pyx_t_5 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, ((PyObject *)__pyx_v_C)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_C));
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "src/cython/gpu/clustering.pyx":66
+  /* "src/cython/gpu/clustering.pyx":67
  * 
  * @cython.embedsignature(True)
  * def G_DBSCAN(             # <<<<<<<<<<<<<<
@@ -2650,7 +2656,382 @@ static PyObject *__pyx_pf_10datamining_10clustering_2G_DBSCAN(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "src/cython/gpu/clustering.pyx":96
+/* "src/cython/gpu/clustering.pyx":99
+ * ### DBSCAN
+ * 
+ * cdef DBSCAN_cython(             # <<<<<<<<<<<<<<
+ *     np.ndarray[int, ndim=1, mode='c'] C,
+ *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+ */
+
+static PyObject *__pyx_f_10datamining_10clustering_DBSCAN_cython(PyArrayObject *__pyx_v_C, PyArrayObject *__pyx_v_data, int __pyx_v_n, int __pyx_v_d, float __pyx_v_eps, int __pyx_v_minPts) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_C;
+  __Pyx_Buffer __pyx_pybuffer_C;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_data;
+  __Pyx_Buffer __pyx_pybuffer_data;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  Py_ssize_t __pyx_t_1;
+  int __pyx_t_2;
+  Py_ssize_t __pyx_t_3;
+  Py_ssize_t __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("DBSCAN_cython", 0);
+  __pyx_pybuffer_C.pybuffer.buf = NULL;
+  __pyx_pybuffer_C.refcount = 0;
+  __pyx_pybuffernd_C.data = NULL;
+  __pyx_pybuffernd_C.rcbuffer = &__pyx_pybuffer_C;
+  __pyx_pybuffer_data.pybuffer.buf = NULL;
+  __pyx_pybuffer_data.refcount = 0;
+  __pyx_pybuffernd_data.data = NULL;
+  __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 99, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 99, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
+
+  /* "src/cython/gpu/clustering.pyx":104
+ *     int n, int d, float eps, int minPts
+ * ):
+ *     DBSCAN_cpp(&C[0], &data[0,0], n, d, eps, minPts)             # <<<<<<<<<<<<<<
+ * 
+ * @cython.embedsignature(True)
+ */
+  __pyx_t_1 = 0;
+  __pyx_t_2 = -1;
+  if (__pyx_t_1 < 0) {
+    __pyx_t_1 += __pyx_pybuffernd_C.diminfo[0].shape;
+    if (unlikely(__pyx_t_1 < 0)) __pyx_t_2 = 0;
+  } else if (unlikely(__pyx_t_1 >= __pyx_pybuffernd_C.diminfo[0].shape)) __pyx_t_2 = 0;
+  if (unlikely(__pyx_t_2 != -1)) {
+    __Pyx_RaiseBufferIndexError(__pyx_t_2);
+    __PYX_ERR(0, 104, __pyx_L1_error)
+  }
+  __pyx_t_3 = 0;
+  __pyx_t_4 = 0;
+  __pyx_t_2 = -1;
+  if (__pyx_t_3 < 0) {
+    __pyx_t_3 += __pyx_pybuffernd_data.diminfo[0].shape;
+    if (unlikely(__pyx_t_3 < 0)) __pyx_t_2 = 0;
+  } else if (unlikely(__pyx_t_3 >= __pyx_pybuffernd_data.diminfo[0].shape)) __pyx_t_2 = 0;
+  if (__pyx_t_4 < 0) {
+    __pyx_t_4 += __pyx_pybuffernd_data.diminfo[1].shape;
+    if (unlikely(__pyx_t_4 < 0)) __pyx_t_2 = 1;
+  } else if (unlikely(__pyx_t_4 >= __pyx_pybuffernd_data.diminfo[1].shape)) __pyx_t_2 = 1;
+  if (unlikely(__pyx_t_2 != -1)) {
+    __Pyx_RaiseBufferIndexError(__pyx_t_2);
+    __PYX_ERR(0, 104, __pyx_L1_error)
+  }
+  DBSCAN_cpp((&(*__Pyx_BufPtrCContig1d(int *, __pyx_pybuffernd_C.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_C.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_10datamining_10clustering_DTYPE_FLOAT *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_data.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_data.diminfo[1].strides))), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts);
+
+  /* "src/cython/gpu/clustering.pyx":99
+ * ### DBSCAN
+ * 
+ * cdef DBSCAN_cython(             # <<<<<<<<<<<<<<
+ *     np.ndarray[int, ndim=1, mode='c'] C,
+ *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_C.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_data.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("datamining.clustering.DBSCAN_cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_C.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_data.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "src/cython/gpu/clustering.pyx":107
+ * 
+ * @cython.embedsignature(True)
+ * def DBSCAN(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+ *     float eps, int minPts
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10datamining_10clustering_5DBSCAN(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10datamining_10clustering_4DBSCAN[] = "DBSCAN(ndarray data, float eps, int minPts)\n\n    Implementation of the DBSCAN algorithm [1].\n\n\n    Parameters:\n        **data** (NumPy float array of shape=(n_points, n_dims)) - The data\n\n        **eps** (float) - The neighborhood radius\n\n        **minPts** (float) - Minimum number of points in the neighborhood\n\n\n    Result:\n        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point\n\n\n    References:\n        [1] `Martin Ester, Hans-Peter Kriegel, Jiirg Sander, Xiaowei Xu - A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise <https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page>`_\n    ";
+static PyMethodDef __pyx_mdef_10datamining_10clustering_5DBSCAN = {"DBSCAN", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10datamining_10clustering_5DBSCAN, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10datamining_10clustering_4DBSCAN};
+static PyObject *__pyx_pw_10datamining_10clustering_5DBSCAN(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_data = 0;
+  float __pyx_v_eps;
+  int __pyx_v_minPts;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("DBSCAN (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_data,&__pyx_n_s_eps,&__pyx_n_s_minPts,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_data)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_eps)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("DBSCAN", 1, 3, 3, 1); __PYX_ERR(0, 107, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_minPts)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("DBSCAN", 1, 3, 3, 2); __PYX_ERR(0, 107, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "DBSCAN") < 0)) __PYX_ERR(0, 107, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_data = ((PyArrayObject *)values[0]);
+    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
+    __pyx_v_minPts = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_minPts == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("DBSCAN", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 107, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("datamining.clustering.DBSCAN", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_r = __pyx_pf_10datamining_10clustering_4DBSCAN(__pyx_self, __pyx_v_data, __pyx_v_eps, __pyx_v_minPts);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10datamining_10clustering_4DBSCAN(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, int __pyx_v_minPts) {
+  int __pyx_v_n;
+  int __pyx_v_d;
+  PyArrayObject *__pyx_v_C = 0;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_C;
+  __Pyx_Buffer __pyx_pybuffer_C;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_data;
+  __Pyx_Buffer __pyx_pybuffer_data;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyArrayObject *__pyx_t_6 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("DBSCAN", 0);
+  __pyx_pybuffer_C.pybuffer.buf = NULL;
+  __pyx_pybuffer_C.refcount = 0;
+  __pyx_pybuffernd_C.data = NULL;
+  __pyx_pybuffernd_C.rcbuffer = &__pyx_pybuffer_C;
+  __pyx_pybuffer_data.pybuffer.buf = NULL;
+  __pyx_pybuffer_data.refcount = 0;
+  __pyx_pybuffernd_data.data = NULL;
+  __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 107, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
+
+  /* "src/cython/gpu/clustering.pyx":130
+ *         [1] `Martin Ester, Hans-Peter Kriegel, Jiirg Sander, Xiaowei Xu - A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise <https://www.aaai.org/Papers/KDD/1996/KDD96-037.pdf?source=post_page>`_
+ *     """
+ *     cdef int n = data.shape[0]             # <<<<<<<<<<<<<<
+ *     cdef int d = data.shape[1]
+ *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
+ */
+  __pyx_v_n = (__pyx_v_data->dimensions[0]);
+
+  /* "src/cython/gpu/clustering.pyx":131
+ *     """
+ *     cdef int n = data.shape[0]
+ *     cdef int d = data.shape[1]             # <<<<<<<<<<<<<<
+ *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
+ *     DBSCAN_cython(C, data, n, d, eps, minPts)
+ */
+  __pyx_v_d = (__pyx_v_data->dimensions[1]);
+
+  /* "src/cython/gpu/clustering.pyx":132
+ *     cdef int n = data.shape[0]
+ *     cdef int d = data.shape[1]
+ *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')             # <<<<<<<<<<<<<<
+ *     DBSCAN_cython(C, data, n, d, eps, minPts)
+ *     return np.asarray(C)
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_INT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) {
+      __pyx_v_C = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_C.rcbuffer->pybuffer.buf = NULL;
+      __PYX_ERR(0, 132, __pyx_L1_error)
+    } else {__pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
+    }
+  }
+  __pyx_t_6 = 0;
+  __pyx_v_C = ((PyArrayObject *)__pyx_t_5);
+  __pyx_t_5 = 0;
+
+  /* "src/cython/gpu/clustering.pyx":133
+ *     cdef int d = data.shape[1]
+ *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
+ *     DBSCAN_cython(C, data, n, d, eps, minPts)             # <<<<<<<<<<<<<<
+ *     return np.asarray(C)
+ * 
+ */
+  __pyx_t_5 = __pyx_f_10datamining_10clustering_DBSCAN_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_minPts); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "src/cython/gpu/clustering.pyx":134
+ *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
+ *     DBSCAN_cython(C, data, n, d, eps, minPts)
+ *     return np.asarray(C)             # <<<<<<<<<<<<<<
+ * 
+ * ### EGG-SynC
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_1)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_1);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+    }
+  }
+  __pyx_t_5 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, ((PyObject *)__pyx_v_C)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_C));
+  __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_r = __pyx_t_5;
+  __pyx_t_5 = 0;
+  goto __pyx_L0;
+
+  /* "src/cython/gpu/clustering.pyx":107
+ * 
+ * @cython.embedsignature(True)
+ * def DBSCAN(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+ *     float eps, int minPts
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_C.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_data.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("datamining.clustering.DBSCAN", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_C.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_data.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XDECREF((PyObject *)__pyx_v_C);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "src/cython/gpu/clustering.pyx":137
  * 
  * ### EGG-SynC
  * cdef EGG_SynC_cython(             # <<<<<<<<<<<<<<
@@ -2683,16 +3064,16 @@ static PyObject *__pyx_f_10datamining_10clustering_EGG_SynC_cython(PyArrayObject
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 137, __pyx_L1_error)
   }
   __pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 137, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":101
+  /* "src/cython/gpu/clustering.pyx":142
  *     int n, int d, float eps
  * ):
  *     EGG_SynC_cpp(&C[0], &data[0,0], n, d, eps)             # <<<<<<<<<<<<<<
@@ -2707,7 +3088,7 @@ static PyObject *__pyx_f_10datamining_10clustering_EGG_SynC_cython(PyArrayObject
   } else if (unlikely(__pyx_t_1 >= __pyx_pybuffernd_C.diminfo[0].shape)) __pyx_t_2 = 0;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 101, __pyx_L1_error)
+    __PYX_ERR(0, 142, __pyx_L1_error)
   }
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -2722,11 +3103,11 @@ static PyObject *__pyx_f_10datamining_10clustering_EGG_SynC_cython(PyArrayObject
   } else if (unlikely(__pyx_t_4 >= __pyx_pybuffernd_data.diminfo[1].shape)) __pyx_t_2 = 1;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 101, __pyx_L1_error)
+    __PYX_ERR(0, 142, __pyx_L1_error)
   }
   EGG_SynC_cpp((&(*__Pyx_BufPtrCContig1d(int *, __pyx_pybuffernd_C.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_C.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_10datamining_10clustering_DTYPE_FLOAT *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_data.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_data.diminfo[1].strides))), __pyx_v_n, __pyx_v_d, __pyx_v_eps);
 
-  /* "src/cython/gpu/clustering.pyx":96
+  /* "src/cython/gpu/clustering.pyx":137
  * 
  * ### EGG-SynC
  * cdef EGG_SynC_cython(             # <<<<<<<<<<<<<<
@@ -2757,7 +3138,7 @@ static PyObject *__pyx_f_10datamining_10clustering_EGG_SynC_cython(PyArrayObject
   return __pyx_r;
 }
 
-/* "src/cython/gpu/clustering.pyx":104
+/* "src/cython/gpu/clustering.pyx":145
  * 
  * @cython.embedsignature(True)
  * def EGG_SynC(             # <<<<<<<<<<<<<<
@@ -2766,10 +3147,10 @@ static PyObject *__pyx_f_10datamining_10clustering_EGG_SynC_cython(PyArrayObject
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10datamining_10clustering_5EGG_SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10datamining_10clustering_4EGG_SynC[] = "EGG_SynC(ndarray data, float eps)\n\n    Implementation of the EGG-SynC algorithm [1].\n\n\n    Parameters:\n        **data** (NumPy float array of shape=(n_points, n_dims)) - The data\n\n        **eps** (float) - The neighborhood radius\n\n\n    Result:\n        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point\n\n\n    References:\n        [1] `Jakob R\303\270dsgaard J\303\270rgensen, Ira Assent - \077\077 <\077\077>`_\n    ";
-static PyMethodDef __pyx_mdef_10datamining_10clustering_5EGG_SynC = {"EGG_SynC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10datamining_10clustering_5EGG_SynC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10datamining_10clustering_4EGG_SynC};
-static PyObject *__pyx_pw_10datamining_10clustering_5EGG_SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10datamining_10clustering_7EGG_SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10datamining_10clustering_6EGG_SynC[] = "EGG_SynC(ndarray data, float eps)\n\n    Implementation of the EGG-SynC algorithm [1].\n\n\n    Parameters:\n        **data** (NumPy float array of shape=(n_points, n_dims)) - The data\n\n        **eps** (float) - The neighborhood radius\n\n\n    Result:\n        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point\n\n\n    References:\n        [1] `Jakob R\303\270dsgaard J\303\270rgensen, Ira Assent - \077\077 <\077\077>`_\n    ";
+static PyMethodDef __pyx_mdef_10datamining_10clustering_7EGG_SynC = {"EGG_SynC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10datamining_10clustering_7EGG_SynC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10datamining_10clustering_6EGG_SynC};
+static PyObject *__pyx_pw_10datamining_10clustering_7EGG_SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_data = 0;
   float __pyx_v_eps;
   int __pyx_lineno = 0;
@@ -2801,11 +3182,11 @@ static PyObject *__pyx_pw_10datamining_10clustering_5EGG_SynC(PyObject *__pyx_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_eps)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("EGG_SynC", 1, 2, 2, 1); __PYX_ERR(0, 104, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("EGG_SynC", 1, 2, 2, 1); __PYX_ERR(0, 145, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "EGG_SynC") < 0)) __PYX_ERR(0, 104, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "EGG_SynC") < 0)) __PYX_ERR(0, 145, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2814,18 +3195,18 @@ static PyObject *__pyx_pw_10datamining_10clustering_5EGG_SynC(PyObject *__pyx_se
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_data = ((PyArrayObject *)values[0]);
-    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 106, __pyx_L3_error)
+    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("EGG_SynC", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 104, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("EGG_SynC", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 145, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("datamining.clustering.EGG_SynC", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 105, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10datamining_10clustering_4EGG_SynC(__pyx_self, __pyx_v_data, __pyx_v_eps);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_r = __pyx_pf_10datamining_10clustering_6EGG_SynC(__pyx_self, __pyx_v_data, __pyx_v_eps);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2836,7 +3217,7 @@ static PyObject *__pyx_pw_10datamining_10clustering_5EGG_SynC(PyObject *__pyx_se
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps) {
+static PyObject *__pyx_pf_10datamining_10clustering_6EGG_SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps) {
   int __pyx_v_n;
   int __pyx_v_d;
   PyArrayObject *__pyx_v_C = 0;
@@ -2866,11 +3247,11 @@ static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyOb
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 104, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 145, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":125
+  /* "src/cython/gpu/clustering.pyx":166
  *         [1] `Jakob Rdsgaard Jrgensen, Ira Assent - ?? <??>`_
  *     """
  *     cdef int n = data.shape[0]             # <<<<<<<<<<<<<<
@@ -2879,7 +3260,7 @@ static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyOb
  */
   __pyx_v_n = (__pyx_v_data->dimensions[0]);
 
-  /* "src/cython/gpu/clustering.pyx":126
+  /* "src/cython/gpu/clustering.pyx":167
  *     """
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]             # <<<<<<<<<<<<<<
@@ -2888,47 +3269,47 @@ static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyOb
  */
   __pyx_v_d = (__pyx_v_data->dimensions[1]);
 
-  /* "src/cython/gpu/clustering.pyx":127
+  /* "src/cython/gpu/clustering.pyx":168
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')             # <<<<<<<<<<<<<<
  *     EGG_SynC_cython(C, data, n, d, eps)
  *     return np.asarray(C)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 168, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_INT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_C = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_C.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 127, __pyx_L1_error)
+      __PYX_ERR(0, 168, __pyx_L1_error)
     } else {__pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -2936,18 +3317,18 @@ static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyOb
   __pyx_v_C = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":128
+  /* "src/cython/gpu/clustering.pyx":169
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     EGG_SynC_cython(C, data, n, d, eps)             # <<<<<<<<<<<<<<
  *     return np.asarray(C)
  * 
  */
-  __pyx_t_5 = __pyx_f_10datamining_10clustering_EGG_SynC_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_5 = __pyx_f_10datamining_10clustering_EGG_SynC_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":129
+  /* "src/cython/gpu/clustering.pyx":170
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     EGG_SynC_cython(C, data, n, d, eps)
  *     return np.asarray(C)             # <<<<<<<<<<<<<<
@@ -2955,9 +3336,9 @@ static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyOb
  * #SynC, SynC_parallel, FSynC
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -2972,14 +3353,14 @@ static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyOb
   }
   __pyx_t_5 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, ((PyObject *)__pyx_v_C)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_C));
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "src/cython/gpu/clustering.pyx":104
+  /* "src/cython/gpu/clustering.pyx":145
  * 
  * @cython.embedsignature(True)
  * def EGG_SynC(             # <<<<<<<<<<<<<<
@@ -3014,7 +3395,7 @@ static PyObject *__pyx_pf_10datamining_10clustering_4EGG_SynC(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "src/cython/gpu/clustering.pyx":132
+/* "src/cython/gpu/clustering.pyx":173
  * 
  * #SynC, SynC_parallel, FSynC
  * cdef SynC_cython(             # <<<<<<<<<<<<<<
@@ -3047,16 +3428,16 @@ static PyObject *__pyx_f_10datamining_10clustering_SynC_cython(PyArrayObject *__
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 132, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_v_C, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 173, __pyx_L1_error)
   }
   __pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 132, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 173, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":137
+  /* "src/cython/gpu/clustering.pyx":178
  *     int n, int d, float eps, float lam
  * ):
  *     SynC_cpp(&C[0], &data[0,0], n, d, eps, lam)             # <<<<<<<<<<<<<<
@@ -3071,7 +3452,7 @@ static PyObject *__pyx_f_10datamining_10clustering_SynC_cython(PyArrayObject *__
   } else if (unlikely(__pyx_t_1 >= __pyx_pybuffernd_C.diminfo[0].shape)) __pyx_t_2 = 0;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 137, __pyx_L1_error)
+    __PYX_ERR(0, 178, __pyx_L1_error)
   }
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -3086,11 +3467,11 @@ static PyObject *__pyx_f_10datamining_10clustering_SynC_cython(PyArrayObject *__
   } else if (unlikely(__pyx_t_4 >= __pyx_pybuffernd_data.diminfo[1].shape)) __pyx_t_2 = 1;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 137, __pyx_L1_error)
+    __PYX_ERR(0, 178, __pyx_L1_error)
   }
   SynC_cpp((&(*__Pyx_BufPtrCContig1d(int *, __pyx_pybuffernd_C.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_C.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_10datamining_10clustering_DTYPE_FLOAT *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_data.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_data.diminfo[1].strides))), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_lam);
 
-  /* "src/cython/gpu/clustering.pyx":132
+  /* "src/cython/gpu/clustering.pyx":173
  * 
  * #SynC, SynC_parallel, FSynC
  * cdef SynC_cython(             # <<<<<<<<<<<<<<
@@ -3121,7 +3502,7 @@ static PyObject *__pyx_f_10datamining_10clustering_SynC_cython(PyArrayObject *__
   return __pyx_r;
 }
 
-/* "src/cython/gpu/clustering.pyx":140
+/* "src/cython/gpu/clustering.pyx":181
  * 
  * @cython.embedsignature(True)
  * def SynC(             # <<<<<<<<<<<<<<
@@ -3130,10 +3511,10 @@ static PyObject *__pyx_f_10datamining_10clustering_SynC_cython(PyArrayObject *__
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10datamining_10clustering_7SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10datamining_10clustering_6SynC[] = "SynC(ndarray data, float eps, float lam)\n\n    Implementation of the SynC algorithm [1].\n\n\n    Parameters:\n        **data** (NumPy float array of shape=(n_points, n_dims)) - The data\n\n        **eps** (float) - The neighborhood radius\n\n        **lam** (float) - Accuracy parameter\n\n\n    Result:\n        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point\n\n\n    References:\n        [1] `Christian B\303\266hm, Claudia Plant, Junming Shao, Qinli Yang - Clustering by synchronization <https://dl.acm.org/doi/pdf/10.1145/1835804.1835879>`_\n    ";
-static PyMethodDef __pyx_mdef_10datamining_10clustering_7SynC = {"SynC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10datamining_10clustering_7SynC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10datamining_10clustering_6SynC};
-static PyObject *__pyx_pw_10datamining_10clustering_7SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10datamining_10clustering_9SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10datamining_10clustering_8SynC[] = "SynC(ndarray data, float eps, float lam)\n\n    Implementation of the SynC algorithm [1].\n\n\n    Parameters:\n        **data** (NumPy float array of shape=(n_points, n_dims)) - The data\n\n        **eps** (float) - The neighborhood radius\n\n        **lam** (float) - Accuracy parameter\n\n\n    Result:\n        **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point\n\n\n    References:\n        [1] `Christian B\303\266hm, Claudia Plant, Junming Shao, Qinli Yang - Clustering by synchronization <https://dl.acm.org/doi/pdf/10.1145/1835804.1835879>`_\n    ";
+static PyMethodDef __pyx_mdef_10datamining_10clustering_9SynC = {"SynC", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10datamining_10clustering_9SynC, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10datamining_10clustering_8SynC};
+static PyObject *__pyx_pw_10datamining_10clustering_9SynC(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_data = 0;
   float __pyx_v_eps;
   float __pyx_v_lam;
@@ -3168,17 +3549,17 @@ static PyObject *__pyx_pw_10datamining_10clustering_7SynC(PyObject *__pyx_self, 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_eps)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("SynC", 1, 3, 3, 1); __PYX_ERR(0, 140, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("SynC", 1, 3, 3, 1); __PYX_ERR(0, 181, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_lam)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("SynC", 1, 3, 3, 2); __PYX_ERR(0, 140, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("SynC", 1, 3, 3, 2); __PYX_ERR(0, 181, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SynC") < 0)) __PYX_ERR(0, 140, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SynC") < 0)) __PYX_ERR(0, 181, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3188,19 +3569,19 @@ static PyObject *__pyx_pw_10datamining_10clustering_7SynC(PyObject *__pyx_self, 
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_data = ((PyArrayObject *)values[0]);
-    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 142, __pyx_L3_error)
-    __pyx_v_lam = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_lam == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 142, __pyx_L3_error)
+    __pyx_v_eps = __pyx_PyFloat_AsFloat(values[1]); if (unlikely((__pyx_v_eps == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 183, __pyx_L3_error)
+    __pyx_v_lam = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_lam == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 183, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SynC", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 140, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("SynC", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 181, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("datamining.clustering.SynC", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 141, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10datamining_10clustering_6SynC(__pyx_self, __pyx_v_data, __pyx_v_eps, __pyx_v_lam);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_r = __pyx_pf_10datamining_10clustering_8SynC(__pyx_self, __pyx_v_data, __pyx_v_eps, __pyx_v_lam);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3211,7 +3592,7 @@ static PyObject *__pyx_pw_10datamining_10clustering_7SynC(PyObject *__pyx_self, 
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10datamining_10clustering_6SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, float __pyx_v_lam) {
+static PyObject *__pyx_pf_10datamining_10clustering_8SynC(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_data, float __pyx_v_eps, float __pyx_v_lam) {
   int __pyx_v_n;
   int __pyx_v_d;
   PyArrayObject *__pyx_v_C = 0;
@@ -3241,11 +3622,11 @@ static PyObject *__pyx_pf_10datamining_10clustering_6SynC(CYTHON_UNUSED PyObject
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 140, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_FLOAT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 181, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "src/cython/gpu/clustering.pyx":163
+  /* "src/cython/gpu/clustering.pyx":204
  *         [1] `Christian Bhm, Claudia Plant, Junming Shao, Qinli Yang - Clustering by synchronization <https://dl.acm.org/doi/pdf/10.1145/1835804.1835879>`_
  *     """
  *     cdef int n = data.shape[0]             # <<<<<<<<<<<<<<
@@ -3254,7 +3635,7 @@ static PyObject *__pyx_pf_10datamining_10clustering_6SynC(CYTHON_UNUSED PyObject
  */
   __pyx_v_n = (__pyx_v_data->dimensions[0]);
 
-  /* "src/cython/gpu/clustering.pyx":164
+  /* "src/cython/gpu/clustering.pyx":205
  *     """
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]             # <<<<<<<<<<<<<<
@@ -3263,47 +3644,47 @@ static PyObject *__pyx_pf_10datamining_10clustering_6SynC(CYTHON_UNUSED PyObject
  */
   __pyx_v_d = (__pyx_v_data->dimensions[1]);
 
-  /* "src/cython/gpu/clustering.pyx":165
+  /* "src/cython/gpu/clustering.pyx":206
  *     cdef int n = data.shape[0]
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')             # <<<<<<<<<<<<<<
  *     SynC_cython(C, data, n, d, eps, lam)
  *     return np.asarray(C)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 165, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 165, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 165, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_c) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 165, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 206, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_C.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_nn___pyx_t_10datamining_10clustering_DTYPE_INT, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) {
       __pyx_v_C = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_C.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 165, __pyx_L1_error)
+      __PYX_ERR(0, 206, __pyx_L1_error)
     } else {__pyx_pybuffernd_C.diminfo[0].strides = __pyx_pybuffernd_C.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_C.diminfo[0].shape = __pyx_pybuffernd_C.rcbuffer->pybuffer.shape[0];
     }
   }
@@ -3311,25 +3692,25 @@ static PyObject *__pyx_pf_10datamining_10clustering_6SynC(CYTHON_UNUSED PyObject
   __pyx_v_C = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":166
+  /* "src/cython/gpu/clustering.pyx":207
  *     cdef int d = data.shape[1]
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     SynC_cython(C, data, n, d, eps, lam)             # <<<<<<<<<<<<<<
  *     return np.asarray(C)
  */
-  __pyx_t_5 = __pyx_f_10datamining_10clustering_SynC_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_lam); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_5 = __pyx_f_10datamining_10clustering_SynC_cython(((PyArrayObject *)__pyx_v_C), ((PyArrayObject *)__pyx_v_data), __pyx_v_n, __pyx_v_d, __pyx_v_eps, __pyx_v_lam); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":167
+  /* "src/cython/gpu/clustering.pyx":208
  *     cdef np.ndarray[DTYPE_INT, ndim=1, mode='c'] C = np.zeros(n, dtype=np.int32, order='c')
  *     SynC_cython(C, data, n, d, eps, lam)
  *     return np.asarray(C)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_asarray); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -3344,14 +3725,14 @@ static PyObject *__pyx_pf_10datamining_10clustering_6SynC(CYTHON_UNUSED PyObject
   }
   __pyx_t_5 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, ((PyObject *)__pyx_v_C)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_C));
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "src/cython/gpu/clustering.pyx":140
+  /* "src/cython/gpu/clustering.pyx":181
  * 
  * @cython.embedsignature(True)
  * def SynC(             # <<<<<<<<<<<<<<
@@ -4450,6 +4831,7 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_C, __pyx_k_C, sizeof(__pyx_k_C), 0, 0, 1, 1},
+  {&__pyx_n_s_DBSCAN, __pyx_k_DBSCAN, sizeof(__pyx_k_DBSCAN), 0, 0, 1, 1},
   {&__pyx_n_s_EGG_SynC, __pyx_k_EGG_SynC, sizeof(__pyx_k_EGG_SynC), 0, 0, 1, 1},
   {&__pyx_n_s_GPU_DBSCAN, __pyx_k_GPU_DBSCAN, sizeof(__pyx_k_GPU_DBSCAN), 0, 0, 1, 1},
   {&__pyx_n_s_G_DBSCAN, __pyx_k_G_DBSCAN, sizeof(__pyx_k_G_DBSCAN), 0, 0, 1, 1},
@@ -4513,53 +4895,65 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "src/cython/gpu/clustering.pyx":26
+  /* "src/cython/gpu/clustering.pyx":27
  * 
  * @cython.embedsignature(True)
  * def GPU_DBSCAN(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps, int minPts
  */
-  __pyx_tuple__3 = PyTuple_Pack(6, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_minPts, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(6, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_minPts, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_GPU_DBSCAN, 26, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_GPU_DBSCAN, 27, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 27, __pyx_L1_error)
 
-  /* "src/cython/gpu/clustering.pyx":66
+  /* "src/cython/gpu/clustering.pyx":67
  * 
  * @cython.embedsignature(True)
  * def G_DBSCAN(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps, int minPts
  */
-  __pyx_tuple__5 = PyTuple_Pack(6, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_minPts, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(6, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_minPts, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_G_DBSCAN, 66, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_G_DBSCAN, 67, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 67, __pyx_L1_error)
 
-  /* "src/cython/gpu/clustering.pyx":104
+  /* "src/cython/gpu/clustering.pyx":107
+ * 
+ * @cython.embedsignature(True)
+ * def DBSCAN(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+ *     float eps, int minPts
+ */
+  __pyx_tuple__7 = PyTuple_Pack(6, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_minPts, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__7);
+  __Pyx_GIVEREF(__pyx_tuple__7);
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_DBSCAN, 107, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 107, __pyx_L1_error)
+
+  /* "src/cython/gpu/clustering.pyx":145
  * 
  * @cython.embedsignature(True)
  * def EGG_SynC(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps
  */
-  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__7);
-  __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_EGG_SynC, 104, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(5, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__9);
+  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_EGG_SynC, 145, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 145, __pyx_L1_error)
 
-  /* "src/cython/gpu/clustering.pyx":140
+  /* "src/cython/gpu/clustering.pyx":181
  * 
  * @cython.embedsignature(True)
  * def SynC(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps, float lam
  */
-  __pyx_tuple__9 = PyTuple_Pack(6, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_lam, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 140, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__9);
-  __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_SynC, 140, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(6, __pyx_n_s_data, __pyx_n_s_eps, __pyx_n_s_lam, __pyx_n_s_n, __pyx_n_s_d, __pyx_n_s_C); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_cython_gpu_clustering_pyx, __pyx_n_s_SynC, 181, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4900,52 +5294,64 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":26
+  /* "src/cython/gpu/clustering.pyx":27
  * 
  * @cython.embedsignature(True)
  * def GPU_DBSCAN(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps, int minPts
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_1GPU_DBSCAN, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_1GPU_DBSCAN, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GPU_DBSCAN, __pyx_t_1) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_GPU_DBSCAN, __pyx_t_1) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":66
+  /* "src/cython/gpu/clustering.pyx":67
  * 
  * @cython.embedsignature(True)
  * def G_DBSCAN(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps, int minPts
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_3G_DBSCAN, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_3G_DBSCAN, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_G_DBSCAN, __pyx_t_1) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_G_DBSCAN, __pyx_t_1) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":104
+  /* "src/cython/gpu/clustering.pyx":107
+ * 
+ * @cython.embedsignature(True)
+ * def DBSCAN(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
+ *     float eps, int minPts
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_5DBSCAN, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DBSCAN, __pyx_t_1) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "src/cython/gpu/clustering.pyx":145
  * 
  * @cython.embedsignature(True)
  * def EGG_SynC(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_5EGG_SynC, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_7EGG_SynC, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_EGG_SynC, __pyx_t_1) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_EGG_SynC, __pyx_t_1) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "src/cython/gpu/clustering.pyx":140
+  /* "src/cython/gpu/clustering.pyx":181
  * 
  * @cython.embedsignature(True)
  * def SynC(             # <<<<<<<<<<<<<<
  *     np.ndarray[DTYPE_FLOAT, ndim=2, mode='c'] data,
  *     float eps, float lam
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_7SynC, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10datamining_10clustering_9SynC, NULL, __pyx_n_s_datamining_clustering); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_SynC, __pyx_t_1) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_SynC, __pyx_t_1) < 0) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "src/cython/gpu/clustering.pyx":1

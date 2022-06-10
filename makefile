@@ -8,6 +8,8 @@ install:
 	nvcc --shared -o libclustering.so \
 		src/cpp_wrappers/clustering.cpp \
 		src/algorithms/clustering/SynC.cpp \
+		src/algorithms/clustering/DBSCAN.cpp \
+		src/structure/RTree.cpp \
 		src/utils/CPU_math.cpp \
 		src/utils/CPU_mem_util.cpp \
 		build/EGG_SynC.o \
@@ -26,4 +28,4 @@ install:
 		-Xcompiler -fPIC
 
 	python3 setup.py build_ext --inplace
-	sphinx-build -b html docs/source docs/build/html
+	sphinx-build -b html docs/source docs/build/html/0.0.4/
