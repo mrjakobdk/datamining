@@ -3,3 +3,5 @@
 //
 
 #include "G_DBSCAN.cuh"
+
+//todo move from GPU_DBSCAN.cu to G_DBSCAN.cu
