@@ -48,7 +48,7 @@ def GPU_FAST_PROCLUS(
     Result:
         **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point
 
-        **D** (NumPy int array of shape=(k, n_dims)) - Marks for each cluster in the dimensions is used in the subspace
+        **D** (NumPy int array of shape=(k, n_dims)) - Marks for each cluster which dimensions are used in the subspace
 
 
     References:
@@ -97,7 +97,7 @@ def PROCLUS(
     Result:
         **C** (NumPy int array of shape=(n_points,)) - The cluster label for each data point
 
-        **D** (NumPy int array of shape=(k, n_dims)) - Marks for each cluster in the dimensions is used in the subspace
+        **D** (NumPy int array of shape=(k, n_dims)) - Marks for each cluster which dimensions are used in the subspace
 
     References:
         [1] `Charu C. Aggarwal, Joel L. Wolf, Philip S. Yu, Cecilia Procopiuc, Jong Soo Park - Fast algorithms for projected clustering <https://dl.acm.org/doi/pdf/10.1145/304181.304188>`_
