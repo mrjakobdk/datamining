@@ -16,11 +16,11 @@ install:
         build/GPU_DBSCAN.o \
         build/GPU_utils.o \
 		-Xcompiler -fPIC
-	#compiling subspace clustering
-	nvcc --device-c -o build/GPU_PROCLUS.o src/algorithms/subspace_clustering/GPU_PROCLUS.cu -Xcompiler -fPIC
-	nvcc --shared -o libsubspaceclustering.so \
-		src/cpp_wrappers/subspace_clustering.cpp \
-		src/algorithms/subspace_clustering/PROCLUS.cpp \
+	#compiling projected clustering
+	nvcc --device-c -o build/GPU_PROCLUS.o src/algorithms/projected_clustering/GPU_PROCLUS.cu -Xcompiler -fPIC
+	nvcc --shared -o libprojectedclustering.so \
+		src/cpp_wrappers/projected_clustering.cpp \
+		src/algorithms/projected_clustering/PROCLUS.cpp \
 		src/utils/CPU_math.cpp \
 		src/utils/CPU_mem_util.cpp \
 		build/GPU_PROCLUS.o \
@@ -28,4 +28,4 @@ install:
 		-Xcompiler -fPIC
 
 	python3 setup.py build_ext --inplace
-	sphinx-build -b html docs/source docs/build/html/0.0.4/
+	sphinx-build -b html docs/source docs/build/html/0.0.5/

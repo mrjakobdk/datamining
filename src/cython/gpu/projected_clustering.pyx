@@ -8,7 +8,7 @@ ctypedef np.float32_t DTYPE_FLOAT
 ctypedef np.int32_t DTYPE_INT
 
 
-cdef extern from "../../cpp_wrappers/subspace_clustering.cpp":
+cdef extern from "../../cpp_wrappers/projected_clustering.cpp":
     void GPU_FAST_PROCLUS_cpp(int *h_C, int *h_D, float *h_data, int n, int d, int k, int l, float a, float b,float min_deviation, int termination_rounds)
     void PROCLUS_cpp(int *h_C, int *h_D, float *h_data, int n, int d, int k, int l, float a, float b,float min_deviation, int termination_rounds)
 
@@ -61,7 +61,7 @@ def GPU_FAST_PROCLUS(
     GPU_FAST_PROCLUS_cython(C, D, data, n, d, k, l, A, B, min_deviation, termination_rounds)
     return np.asarray(C), np.asarray(D)
 
-### GPU-FAST-PROCLUS
+### PROCLUS
 
 cdef PROCLUS_cython(
     np.ndarray[int, ndim=1, mode='c'] C,

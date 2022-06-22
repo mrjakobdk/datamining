@@ -1,12 +1,14 @@
+{% set data = load_setup_py_data() %}
+
 package:
   name: datamining
-  version: 0.0.4
+  version: 0.0.5
 
 source:
   path: .
 
 build:
-  number: 4
+  number: 5
 
 requirements:
   build:

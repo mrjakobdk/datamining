@@ -26,11 +26,11 @@ ext_modules = [
         ]
     ),
     Extension(
-        'datamining.subspace_clustering',
+        'datamining.projected_clustering',
         [
-            'src/cython/gpu/subspace_clustering.pyx',
+            'src/cython/gpu/projected_clustering.pyx',
         ],
-        libraries=['subspaceclustering'],
+        libraries=['projectedclustering'],
         library_dirs=[
             './libs',
             'cython',

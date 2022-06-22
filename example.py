@@ -1,6 +1,6 @@
 import numpy as np
 from datamining.clustering import *
-from datamining.subspace_clustering import *
+from datamining.projected_clustering import *
 import matplotlib.pyplot as plt
 import time
 import torch

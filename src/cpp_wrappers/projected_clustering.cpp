@@ -1,8 +1,8 @@
 //
 // Created by jakobrj on 6/3/22.
 //
-#include "../algorithms/subspace_clustering/GPU_PROCLUS.cuh"
-#include "../algorithms/subspace_clustering/PROCLUS.h"
+#include "../algorithms/projected_clustering/GPU_PROCLUS.cuh"
+#include "../algorithms/projected_clustering/PROCLUS.h"
 
 void GPU_FAST_PROCLUS_cpp(int *h_C, int *h_D, float *h_data, int n, int d, int k, int l, float a, float b,
                           float min_deviation, int termination_rounds) {

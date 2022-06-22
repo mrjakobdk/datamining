@@ -7,8 +7,8 @@ datamining.clustering
 .. automodule:: datamining.clustering
    :members:
 
-datamining.subspace_clustering
+datamining.projected_clustering
 ==============================
-.. automodule:: datamining.subspace_clustering
+.. automodule:: datamining.projected_clustering
    :members:
 
